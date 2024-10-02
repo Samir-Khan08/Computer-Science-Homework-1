@@ -10,15 +10,15 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            // Step 1: Ask the user to enter the day number
+            //Ask the user to enter the day number
             Console.WriteLine("Enter a number for the day (1 = Monday, 7 = Sunday):");
             int dayNumber = int.Parse(Console.ReadLine());
 
-            // Step 2: Ask the user to enter the format they want
+            //Ask the user to enter the format they want
             Console.WriteLine("Enter the format you want (day, shortday, char):");
             string format = Console.ReadLine().ToLower(); // Convert to lowercase to make it case insensitive
 
-            // Step 3: Call the DayFormat function and display the result
+            //Call the DayFormat function and display the result
             string result = DayFormat(dayNumber, format);
             if (result != null)
             {
