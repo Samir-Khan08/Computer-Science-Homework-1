@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Step 1: Ask the user to enter the day number
+            Console.WriteLine("Enter a number for the day (1 = Monday, 7 = Sunday):");
+            int dayNumber = int.Parse(Console.ReadLine());
+
+            // Step 2: Ask the user to enter the format they want
+            Console.WriteLine("Enter the format you want (day, shortday, char):");
+            string format = Console.ReadLine().ToLower(); // Convert to lowercase to make it case insensitive
+
+            // Step 3: Call the DayFormat function and display the result
+            string result = DayFormat(dayNumber, format);
+            if (result != null)
+            {
+                Console.WriteLine($"The formatted day is: {result}");
+            }
+            Console.Read();
+        }
+
+        static string DayFormat(int dayNumber, string format)
+        {
+            // Arrays to store day names in different formats
+            string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+            string[] shortDays = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
+            string[] charDays = { "M", "Tu", "W", "Th", "F", "Sa", "Su" };
+
+            // Ensure the day number is valid (between 1 and 7)
+            if (dayNumber < 1 || dayNumber > 7)
+            {
+                Console.WriteLine("Invalid day number. Please enter a number between 1 and 7.");
+                return null;
+            }
+
+            // Adjust dayNumber to work as array index (subtract 1)
+            int index = dayNumber - 1;
+
+            // Return the appropriate format based on the input
+            if (format == "day")
+            {
+                return days[index]; // Return full day name
+            }
+            else if (format == "shortday")
+            {
+                return shortDays[index]; // Return short form
+            }
+            else if (format == "char")
+            {
+                return charDays[index]; // Return character form
+            }
+            else
+            {
+                // If the format is invalid, display an error message
+                Console.WriteLine("Invalid format. Please choose between 'day', 'shortday', or 'char'.");
+                return null;
+            }
+        }
+    }
+}
