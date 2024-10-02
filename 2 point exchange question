@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Ask the user to enter the amount in GBP
+            Console.WriteLine("Enter amount in GBP:");
+            double pounds = double.Parse(Console.ReadLine());
+
+            //Ask the user to enter the target currency
+            Console.WriteLine("Enter the target currency (USD, EUR, CNY, JPY):");
+            string currency = Console.ReadLine().ToUpper();
+
+            //Define the exchange rates (you can update these manually)
+            double rate = 0.0;
+            if (currency == "USD")
+            {
+                rate = 1.26;
+            }
+            else if (currency == "EUR")
+            {
+                rate = 1.15;
+            }
+            else if (currency == "CNY")
+            {
+                rate = 9.07;
+            }
+            else if (currency == "JPY")
+            {
+                rate = 184.6;
+            }
+            else
+            {
+                Console.WriteLine("Invalid currency.");
+                return;
+            }
+
+            //Calculate the converted amount
+            double convertedAmount = pounds * rate;
+
+            //Output the result
+            Console.WriteLine($"{pounds} GBP = {convertedAmount:F2} {currency}");
+            Console.ReadLine();
+        }
+    }
+}
