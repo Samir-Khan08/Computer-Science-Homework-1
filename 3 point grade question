@@ -10,11 +10,11 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            // Step 1: Ask the user to enter their mark
+            // Ask the user to enter their mark
             Console.WriteLine("Enter your exam mark:");
             int mark = int.Parse(Console.ReadLine()); // Read the mark from the user
 
-            // Step 2: Define the grade based on the new boundaries
+            // Define the grade based on the new boundaries
             int grade = 0;
             int marksToNext = 0;
 
@@ -70,7 +70,7 @@ namespace ConsoleApp2
                 marksToNext = 0;  // No higher grade
             }
 
-            // Step 3: Output the result
+            // Output the result
             Console.WriteLine($"Your mark is {mark}, and you got grade {grade}.");
             if (marksToNext > 0)
             {
