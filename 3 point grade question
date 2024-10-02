@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Step 1: Ask the user to enter their mark
+            Console.WriteLine("Enter your exam mark:");
+            int mark = int.Parse(Console.ReadLine()); // Read the mark from the user
+
+            // Step 2: Define the grade based on the new boundaries
+            int grade = 0;
+            int marksToNext = 0;
+
+            // Check each range to find the grade
+            if (mark < 2)
+            {
+                grade = 0;  // Grade U
+                marksToNext = 2 - mark;
+            }
+            else if (mark < 4)
+            {
+                grade = 1;
+                marksToNext = 4 - mark;
+            }
+            else if (mark < 13)
+            {
+                grade = 2;
+                marksToNext = 13 - mark;
+            }
+            else if (mark < 22)
+            {
+                grade = 3;
+                marksToNext = 22 - mark;
+            }
+            else if (mark < 31)
+            {
+                grade = 4;
+                marksToNext = 31 - mark;
+            }
+            else if (mark < 41)
+            {
+                grade = 5;
+                marksToNext = 41 - mark;
+            }
+            else if (mark < 54)
+            {
+                grade = 6;
+                marksToNext = 54 - mark;
+            }
+            else if (mark < 67)
+            {
+                grade = 7;
+                marksToNext = 67 - mark;
+            }
+            else if (mark < 80)
+            {
+                grade = 8;
+                marksToNext = 80 - mark;
+            }
+            else
+            {
+                grade = 9;  // Maximum grade
+                marksToNext = 0;  // No higher grade
+            }
+
+            // Step 3: Output the result
+            Console.WriteLine($"Your mark is {mark}, and you got grade {grade}.");
+            if (marksToNext > 0)
+            {
+                Console.WriteLine($"You need {marksToNext} more marks to reach the next grade.");
+            }
+            else
+            {
+                Console.WriteLine("You have the highest grade! Well done!");
+            }
+            Console.Read();
+        }
+    }
+}
